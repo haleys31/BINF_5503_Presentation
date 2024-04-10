@@ -1,0 +1,45 @@
+---
+title: "Poster Presentation"
+output: html_document
+date: "2024-04-09"
+---
+
+```{r setup, include=FALSE}
+library(ggplot2)
+library(tidyverse)
+library(ggfortify)
+```
+```{r}
+gene_density <- read.csv('geneDensity.csv')
+ltr_density <- read.csv('ltrDensity.csv')
+ltr_age <- read.csv('ltrAge.csv')
+```
+
+```{r}
+# Doing a linear regression model of gene density against ltr density!
+density_lm <- lm(gene_density$density ~ ltr_density$density)
+summary(density_lm)
+
+# Plotting!
+plot(ltr_density$density, gene_density$density,
+    xlab = "LTR Density", ylab = "Gene Density",
+    main = "Scatterplot with Linear Regression Line")
+
+abline(density_lm, col = "red", lwd = 3)
+```
+
+
+```{r}
+# As the gene density dataset is larger than the ltr age dataset, am subsetting the gene density dataset to equal the same length as the ltr age dataset
+# Running a linear model of gene density against ltr age
+age_lm <- lm(gene_density$density[1:42340] ~ ltr_age$K2P[1:42340])
+summary(age_lm)
+
+# Plotting!
+plot(ltr_age$K2P[1:42340], gene_density$density[1:42340],
+    xlab = "LTR Density", ylab = "Gene Density",
+    main = "Scatterplot with Linear Regression Line")
+
+abline(age_lm, col = "red", lwd = 3)
+```
+

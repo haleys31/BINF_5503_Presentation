@@ -1,0 +1,36 @@
+This data describes two of the genetic units (or “elements”) that live in one plant genome: a set of highly conserved genes and one type of transposon (a “selfish” gene that makes copies of itself at the expense of its host genome). The chromosomes have been broken down into 1Mb pieces (“windows”) that overlap each other. In each window, we know the number and size (base pairs occupied) of the conserved genes and transposons.
+
+Long Terminal Repeats (LTRs) are a type of transposable element, aka “genomic parasite”. They make copies of themselves at the expense of their host genome. They make up a large portion of plant genomes (can be >40%!). However, the host genome wants to prevent them from replicating.
+
+Certain regions of a chromosome are more tightly wound up with histones. This makes them less accessible to molecular machinery: if polymerases aren’t likely to access a region, the region can’t be expressed. And, if a region is unexpressed, you don’t want genes there! These are regions where LTRs tend to accumulate.
+
+More accessible and more active regions of a chromosome have higher gene content, so these regions can be expressed effectively! LTRs that insert into these regions have a worse impact on the host.
+
+Data files:
+
+geneDensity: genomic data on the frequency of genes
+- chromosome: chromosome identifier
+- start: start of the sampled window
+- end: end of the sampled window
+- winNum: identifier for the window, approximately 1Mb pieces that overlap each other
+- numElements: number of genetic "bits"
+- numBases: number of base pairs in window
+- winSize: size of the window (should be 1Mb)
+- density: measurement of the number of base pairs in a 1Mb window that are part of a gene divided by the total number of base pairs in the window (1,000,000)
+
+ltrDensity: genomic data on the frequency of a type of repetitive element
+- chromosome: chromosome identifier
+- start: start of the sampled window
+- end: end of the sampled window
+- winNum: identifier for the window, approximately 1Mb pieces that overlap each other
+- numElements: number of genetic "bits"
+- numBases: number of base pairs in window
+- winSize: size of the window (should be 1Mb)
+- density: measurement of the number of base pairs in a 1Mb window that are part of a gene divided by the total number of base pairs in the window (1,000,000)
+
+ltrAge: the approximate evolutionary age of those repetitive elements
+- chrom: chromosome identifier
+- start: start of the sampled position on the chromosome
+- end: end of the sampled position on the chromosome
+- K2P: measure of age
+
