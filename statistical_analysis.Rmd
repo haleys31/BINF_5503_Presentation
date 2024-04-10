@@ -23,7 +23,7 @@ summary(density_lm)
 # Plotting!
 plot(ltr_density$density, gene_density$density,
     xlab = "LTR Density", ylab = "Gene Density",
-    main = "Scatterplot with Linear Regression Line")
+    main = "LTR Density vs Gene Density with Linear Regression Line")
 
 abline(density_lm, col = "red", lwd = 3)
 ```
@@ -37,8 +37,8 @@ summary(age_lm)
 
 # Plotting!
 plot(ltr_age$K2P[1:42340], gene_density$density[1:42340],
-    xlab = "LTR Density", ylab = "Gene Density",
-    main = "Scatterplot with Linear Regression Line")
+    xlab = "LTR Age", ylab = "Gene Density",
+    main = "LTR Age vs Gene Density with Linear Regression Line")
 
 abline(age_lm, col = "red", lwd = 3)
 ```
